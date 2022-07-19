@@ -18,6 +18,16 @@ function createCard(name, description, pictureUrl, startDate, endDate, location)
     `;
   }
 
+function alerting(html)
+{
+    return`
+    <div class ="col">
+    <div class="alert alert-primary" role="alert">
+        ${html}
+    </div>
+    </div>
+    `
+}
 
 window.addEventListener('DOMContentLoaded', async () => {
 
@@ -25,7 +35,10 @@ const url = "http://localhost:8000/api/conferences/";
 try {
 const response = await fetch(url);
 if(!response.ok){
-
+    // Figure out what to do when the response is bad
+    const html = alerting("Not a valid response");
+    const column = document.querySelector('.row');
+    column.innerHTML += html;
 }
 else{
     const data = await response.json();
@@ -55,7 +68,10 @@ else{
 
 }
 catch(e){
-
+    // Figure out what to do if an error is raised
+    const html = alerting("ERROR");
+    const column = document.querySelector('.row');
+    column.innerHTML += html;
 }
 
 });
