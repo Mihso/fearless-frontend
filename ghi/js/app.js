@@ -1,8 +1,11 @@
-function createCard(name, description, pictureUrl, startDate, endDate) {
+function createCard(name, description, pictureUrl, startDate, endDate, location) {
     return `
     <div class="col">
         <div class="card shadow p-3 mb-5 bg-body rounded">
             <img src="${pictureUrl}" class="card-img-top">
+            <div class="card-header">
+            ${location}
+          </div>
             <div class="card-body ">
                 <h5 class="card-title" >${name}</h5>
                 <p class="card-text">${description}</p>
@@ -40,7 +43,8 @@ else{
             const pictureUrl = details.conference.location.picture_url;
             const start = new Date(details.conference.starts).toLocaleDateString();
             const end = new Date(details.conference.ends).toLocaleDateString();
-            const html = createCard(title, description, pictureUrl, start, end);
+            const locate = details.conference.location.name;
+            const html = createCard(title, description, pictureUrl, start, end, locate);
             const column = document.querySelector('.row');
             column.innerHTML += html;
 
