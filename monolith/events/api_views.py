@@ -11,7 +11,6 @@ class LocationListEncoder(ModelEncoder):
     model = Location
     properties = ["name", "picture_url"]
 
-
 class LocationDetailEncoder(ModelEncoder):
     model = Location
     properties = [
@@ -49,6 +48,16 @@ class ConferenceDetailEncoder(ModelEncoder):
         "location": LocationListEncoder(),
     }
 
+@require_http_methods(["GET"])
+def api_list_states(request):
+    states = State.objects.all().order_by('name')
+    obj = []
+    for s in states:
+        obj.append({"name" : s.name, "abbreviation": s.abbreviation})
+
+    return JsonResponse(
+        {"states":obj},
+    )
 
 @require_http_methods(["GET", "POST"])
 def api_list_conferences(request):
