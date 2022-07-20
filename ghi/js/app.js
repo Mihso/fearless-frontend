@@ -50,7 +50,6 @@ else{
         if(detailResponse.ok)
         {
             const details = await detailResponse.json();
-            console.log(details)
             const title = details.conference.name;
             const description = details.conference.description;
             const pictureUrl = details.conference.location.picture_url;

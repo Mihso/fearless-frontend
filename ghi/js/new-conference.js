@@ -7,10 +7,8 @@ window.addEventListener('DOMContentLoaded', async () => {
             pass
         }
         else
-        {
-            
+        {     
             const data = await response.json();
-            console.log(data)
             
             const selection = document.getElementById('Location')
             for( let c of data.locations)
@@ -18,7 +16,6 @@ window.addEventListener('DOMContentLoaded', async () => {
                 const i = document.createElement('option')
                 i.value = c.id
                 i.innerHTML = c.name
-                console.log(i)
                 selection.appendChild(i)
             }
 

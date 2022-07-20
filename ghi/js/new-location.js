@@ -17,7 +17,6 @@ window.addEventListener('DOMContentLoaded', async () => {
                 const i = document.createElement('option')
                 i.value = s.abbreviation
                 i.innerHTML = s.name
-                console.log(i)
                 selection.appendChild(i)
             }
 
