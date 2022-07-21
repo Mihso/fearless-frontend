@@ -34,17 +34,17 @@ window.addEventListener('DOMContentLoaded', async () => {
             conf = document.querySelector('#conference').value
             const locationUrl = `http://localhost:8000${conf}presentations/`;
             const fetchConfig = {
-            method: "post",
-            body: json,
-            headers: {
-                'Content-Type': 'application/json',
-            },
+                method: "post",
+                body: json,
+                headers: {
+                    'Content-Type': 'application/json',
+                },
             };
             const response = await fetch(locationUrl, fetchConfig);
             if (response.ok) {
-            formTag.reset();
-            const newLocation = await response.json();
-            console.log(newLocation);
-            }
+                formTag.reset();
+                const newLocation = await response.json();
+                console.log(newLocation);
+                }
         });
 });
