@@ -105,7 +105,7 @@ def api_list_conferences(request):
             safe=False,
         )
 
-
+@require_http_methods(["GET", "DELETE", "PUT"])
 def api_show_conference(request, pk):
     """
     Returns the details for the Conference model specified
