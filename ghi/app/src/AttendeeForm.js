@@ -84,9 +84,8 @@ if (this.state.hasSignedUp) {
   messageClasses = 'alert alert-success mb-0';
   formClasses = 'd-none';
 }
-        return(
-            <div className="container">
-    <div className="my-5">
+    return(
+    <div className="my-5 container">
       <div className="row">
         <div className="col col-sm-auto">
           <img width="300" className="bg-white rounded shadow d-block mx-auto mb-4" src="/logo.svg" />
@@ -141,7 +140,6 @@ if (this.state.hasSignedUp) {
         </div>
       </div>
     </div>
-  </div>
         );
     }
 }
